@@ -8,8 +8,8 @@ const jwt = require('jsonwebtoken');
 router.get('/', (req, res) => res.send('Hola mundo'))
 
 router.post('/signup', async (req, res) => {
-    const { email, password, userName, userLastName } = req.body;
-    const newUser = new User({ email:email, password:password, userName:userName, userLastName:userLastName });
+    const { email, password, userName, userLastName, rol } = req.body;
+    const newUser = new User({ email:email, password:password, userName:userName, userLastName:userLastName, rol:rol });
     await newUser.save();
     const token = jwt.sign({ _id: newUser._id }, 'secretKey')
     res.status(200).json({ token })
