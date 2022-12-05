@@ -7,7 +7,6 @@ require('./database');
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/talleres', require('./routes/indextaller'));
 app.use('/api', require('./routes/index'))
 
 app.listen(3000);
